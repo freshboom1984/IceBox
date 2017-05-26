@@ -1,0 +1,152 @@
+@model ProductTable
+<link rel="stylesheet" type="text/css" href="~/css/product-style.css">
+
+<div class="container main">
+    <h3 style="color:#0CF">@Model.Name</h3>
+    <h5 style="color:#CCC">@Model.Ename</h5>
+    <div class="col-md-5">
+        <img src="~/@Model.Hpicture" />
+    </div>
+    <div class="col-md-7">
+        <span class="label label-default">动作冒险</span>
+        <hr />
+        <p style="color:#FFF">
+            @Model.Hdiscribe
+        </p>
+        <hr />
+        <div>
+            @if (Model.Discount != 100)
+            {
+                <span class="game-discount">-@Model.Discount%</span>
+                <span class="game-price"><s>@Model.Id</s></span><!--原价-->
+            }  <!--Model.Discount != 100 即有折扣，不是100%off-->   
+            <span class="game-price">@Model.Price</span>
+            
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-shopping-cart">加入购物车</span></button>
+        &nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-lg btn-info"><span>点击购买</span></button>
+    </div>
+</div>
+
+<div class=" peizhi">
+
+    <div class="container" style="background-color:#333">
+        <h2 style="color:#0FF">配置要求</h2>
+        <hr />
+        <ul class="nav nav-tabs" role="tablist">
+            <li><a href="#tab-low" role="tab" data-toggle="tab">最低配置</a></li>
+            <li><a href="#tab-high" role="tab" data-toggle="tab">推荐配置</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab-low" style="background-color:#333">
+                <p style="color:#FFF">
+                    @Model.Clow
+                   
+                </p>
+            </div>
+
+            <div class="tab-pane" id="tab-high" style="background-color:#333">
+                <p style="color:#FFF">
+                    @Model.Chigh
+                   
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="show container" style="background-color:#333">
+    <h2 style="color:#0CF">宣传截图视频</h2>
+    <hr />
+    <br />
+    <ul class="nav nav-tabs" role="tablist">
+        <li><a href="#p1" role="tab" data-toggle="tab">截图1</a></li>
+        <li><a href="#p2" role="tab" data-toggle="tab">截图2</a></li>
+        <li><a href="#ygp1" role="tab" data-toggle="tab">预告片</a></li>
+    </ul>
+
+    <br />
+    <div class="tab-content">
+
+        <div class="tab-pane  active" id="p1">
+            <div class="col-md-6">
+                <img src="~/@Model.Spicture" />
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-4">
+                <p style="color:#CCC;margin:auto">
+                    @Model.Sdisvribe
+                </p>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="p2">
+            <div class="col-md-6">
+                <img src="p-img/p2.jpg" />
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-4">
+                <p style="color:#CCC;margin:auto">
+                    在《For Honor》紧张又逼真的战场上杀出一条毁灭之路。<br />
+                    <br />
+                    • 征服独一无二的战士<br />
+                    在各种英勇的骑士、残忍的维京人还有致命的武士中选择你最爱的战士，每一个都有自己专属的武器、风格和个性化选择。<br />
+                    <br />
+                    • 难忘的故事战役 <br />
+                    在大型战役中攻破城堡和堡垒，在激烈的对战中迎击夺命 Boss，确保你的人能在神秘致命的敌人围攻中存活下来。<br />
+                    <br />
+                    • 单打或与好友一起征服敌人<br />
+                    《For Honor》提供好玩的单人战役和惊心动魄的多人模式。<br />
+                    <br />
+                    • 创新”战斗的艺术”控制系统 <br />
+                    玩家能够完全控制战士的系统，权衡武器的重量，感受每一次攻击的力度。<br />
+                </p>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="ygp1">
+            <div class="col-md-6">
+                <video width="610px" height="343px" controls>
+                    <source src="p-img/ygp1.webm" type="video/webm">
+                    Your browser does not support the video tag.Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-4">
+                <p style="color:#CCC;margin:auto">
+                    在《For Honor》紧张又逼真的战场上杀出一条毁灭之路。<br />
+                    <br />
+                    • 征服独一无二的战士<br />
+                    在各种英勇的骑士、残忍的维京人还有致命的武士中选择你最爱的战士，每一个都有自己专属的武器、风格和个性化选择。<br />
+                    <br />
+                    • 难忘的故事战役 <br />
+                    在大型战役中攻破城堡和堡垒，在激烈的对战中迎击夺命 Boss，确保你的人能在神秘致命的敌人围攻中存活下来。<br />
+                    <br />
+                    • 单打或与好友一起征服敌人<br />
+                    《For Honor》提供好玩的单人战役和惊心动魄的多人模式。<br />
+                    <br />
+                    • 创新”战斗的艺术”控制系统 <br />
+                    玩家能够完全控制战士的系统，权衡武器的重量，感受每一次攻击的力度。<br />
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+   

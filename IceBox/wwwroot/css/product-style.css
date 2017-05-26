@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* CSS Document */
+/* 删除浏览器的默认样式 */
+*{margin:0;
+	padding:0;
+	list-style:none;
+	outline:none;
+}
+a{text-decoration:none;}
+/* 全局控制 */
+/*header*/
+.nav{
+	padding:15px;	
+}
+/*silde*/
+.slide{
+	margin-top:-1.49em;
+}
+.carousel{
+	height:100%;		/*为Banner区域指定高度*/
+	background-color:#000;
+	margin-bottom:30px;/*与下方板块拉开一点距离*/
+}
+.carousel .item{
+	height:100%;
+	background-color:#000;
+}
+.carousel img{
+	width:100%;		/*图片填充整个Banner区域*/
+	background-color:#000;
+}
+
+.carousel-caption h1{
+	text-align:left;
+	line-height:30px;
+	background:#C93;
+	border-radius:15px 15px;
+	
+}
+/*开始product设计*/
+.main{
+ margin:30px;
+ background-color:#333;	
+ height:430px;
+}
+
+
+
+
+/*DOWN list*/
+
+	
+/*以下为icon*/
+.social-icons {
+	float: right;
+}
+.social-icons li{
+	float:left;
+	margin-right:10px;
+	display:inline-block;
+}
+.social-icons li a {
+	height: 16px;
+	width: 18px;
+	display: block;
+	background:url(../../img/social_icons.png);
+}
+.social-icons li:first-child a{
+	background:url(../../img/social_icons.png) 0% 0%;
+}
+.social-icons li:first-child a:hover{
+	background: url(../../img/social_icons.png) 0% 90%;
+}
+.social-icons li:nth-child(2) a{
+	background: url(../../img/social_icons.png) 8% 0%;
+}
+.social-icons li:nth-child(2) a:hover{
+	background: url(../../img/social_icons.png) 8% 90%;
+}
+.social-icons li:nth-child(3) a{
+	background: url(../../img/social_icons.png) 24% 0%;
+}
+.social-icons li:nth-child(3) a:hover{
+	background: url(../../img/social_icons.png) 24% 90%;
+}
+
+
+/*copyright*/
+.copyright{
+	background:#333;
+	text-align:center;
+}
+.copyright h4{
+	color:#CCC;
+}
+.copyright ul{
+	float:right;
+}
+	
+
+
+.nav-tab{
+    background-color:#666;	
+}
+
+.peizhi{
+	margin:30px;
+	bakcground-color:#333;
+	border-radius:15px;
+	height:400px;
+}
+
+.show{
+   	margin:30px;
+	bakcground-color:#333;
+	height:640px;
+}
+
+
+.game-discount{
+	display:inline-block;
+	padding: 5px;
+	background:#40C411;
+	text-align:center;
+	font-size:25px;
+	color:#050505;
+	float:left;
+	height:40px;
+}
+
+.game-price{
+	display:inline-block;
+	padding: 5px;
+	background:#878282;
+	text-align:center;
+	font-size:25px;
+	color:#FF9E00;
+	float:left;
+	height:40px;
+}
+
+
+.
+
+
+
+
+
+
+
+	

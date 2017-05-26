@@ -1,0 +1,124 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* 删除浏览器的默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+/* 全局控制 */
+/*header*/
+.nav {
+    padding: 15px;
+}
+/*silde*/
+.slide {
+    margin-top: -1.49em;
+}
+
+
+.bg {
+    width: 40%;
+    margin: 0 auto;
+}
+
+    .bg h2 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        margin: 0px 0px 50px 0px;
+        font-family: "微软雅黑";
+    }
+
+.login-top {
+    margin-top: 100px;
+    background-color: #E1E1E1;
+    border-radius: 25px 25px 25px 25px;
+    padding: 40px 40px;
+    opacity: 0.7;
+}
+
+    .login-top h1 {
+        text-align: center;
+        font-size: 27px;
+        font-weight: 500;
+        color: #F45B4B;
+        margin: 0px 0px 20px 0px;
+    }
+
+    .login-top input[type="text"] {
+        outline: none;
+        font-size: 15px;
+        font-weight: 500;
+        color: #818181;
+        padding: 1px 20px;
+        background-color: #cacaca;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        margin: 0px 0px 12px 0px;
+        width: 88%;
+    }
+
+    .login-top input[type="password"] {
+        outline: none;
+        font-size: 15px;
+        font-weight: 500;
+        color: #818181;
+        padding: 1px 20px;
+        background-color: #cacaca;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        margin: 0px 0px 12px 0px;
+        width: 88%;
+    }
+
+.forgot a {
+    font-size: 13px;
+    font-weight: 500;
+    color: F45b4b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*copyright*/
+.copyright {
+    margin-top: 2em;
+    background: #333;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+    .copyright h4 {
+        color: #CCC;
+    }
+
+    .copyright ul {
+        float: right;
+    }

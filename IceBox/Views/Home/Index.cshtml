@@ -1,0 +1,219 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model ViewModel
+
+
+<!--slide-->
+<div id="slide" class="carousel slide" data-ride="carousel">
+    <!--id="myCarousel"，用于下方不同内容的data-target唯一绑定。-->
+    <!--1.小点点-->
+    <ol class="carousel-indicators">
+        <li data-target="#slide" data-slide-to="0" class="active"></li>
+        <li data-target="#slide" data-slide-to="1"></li>
+        <li data-target="#slide" data-slide-to="2"></li>
+        <li data-target="#slide" data-slide-to="3"></li>
+    </ol>
+    <!-- 2.轮播内容:图片\文字\链接  ****1920*1080****** -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src=@ViewBag.newsimg><!--图片-->
+            <div class="carousel-caption">
+                <!--文字-->
+                <h1>@ViewBag.newsname</h1>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button" target="_blank">CHECK IT NOW</a></p>
+            </div>
+        </div>
+        @foreach (var n in Model.news)
+        {
+            <div class="item">
+                <img src=@n.Img>
+                <div class="carousel-caption">
+                    <h1>@n.Name</h1>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button" target="_blank">CHECK IT NOW</a></p>
+                </div>
+            </div>
+        }
+
+
+    </div>
+
+    <!--3.左右导航按钮-->
+    <a class="carousel-control left" href="#slide" data-slide="prev" role="button">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">上一页</span>
+        <!--&lsaquo;-->
+    </a>
+    <a class="carousel-control right" href="#slide" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">下一页</span>
+        <!--&rsaquo;-->
+    </a>
+</div>
+<!--UP slide --DOWN MAIN-->
+
+<div class="container main">
+    <div class=" col-md-2 main-left hidden-sm hidden-xs">
+        <ul>
+            <li>Recommended</li>
+            <li><a href="#" target="_blank">Tags</a></li>
+            <li><a href="#" target="_blank">By Curtors</a></li>
+            <li>Discovery Queues</li>
+            <li><a href="#" target="_blank">Recommendations</a></li>
+            <li><a href="#" target="_blank">New Releases</a></li>
+            <li>Browse Categories</li>
+            <li><a href="#" target="_blank">Top Sellers</a></li>
+            <li><a href="#" target="_blank">Recently Updated</a></li>
+            <li><a href="#" target="_blank">New Releases</a></li>
+            <li>Browse by genre</li>
+            <li><a href="#" target="_blank">Free to play</a></li>
+            <li><a href="#" target="_blank">Early Access</a></li>
+            <li><a href="#" target="_blank">Action</a></li>
+            <li><a href="#" target="_blank">Casual</a></li>
+            <li><a href="#" target="_blank">Indie</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-10  main-right">
+        <div class="col-sm-12 container special" role="row">
+
+            <h1>特色推荐</h1>
+
+            @foreach (var s in Model.special)
+            {
+
+                <div class="col-sm-6 col-md-4">
+                    <a href="Home/Product/@s.ProductId"><img src=@s.Hpicture></a>
+                    <a href="Home/Product/@s.ProductId"><h3>@s.Name</h3></a>
+
+                    @if (s.Id != 0)
+                    {
+                        <p>¥@s.Price @s.Discount%off <s>¥@s.Id</s></p><!--此处的ID不是ID 是原价--->
+
+                    }
+                    else
+                    {
+                        <p>¥@s.Price </p>
+                    }
+
+                    <!--s.Id != 0 为未有折扣--->
+
+                </div>
+
+            }
+
+        </div>
+        <br />
+        <br />
+
+        <ul class="choose nav-tabs col-sm-12" role="tablist">
+            <li><a role="tab" data-toggle="tab" class="active" href="#recom">#推荐</a></li>
+            <li><a role="tab" data-toggle="tab" href="#coming">#即将上市</a></li>
+            <li><a role="tab" data-toggle="tab" href="#disco">#打折</a></li>
+        </ul>
+
+        <div class="tab-content col-sm-12">
+            <div class="tab-pane active" id="recom">
+                <ul class="list-group">
+                    @foreach (var r in Model.recom)
+                    {
+                        <li class="list-group-item">
+                            <div class=" col-sm-12">
+                                <div class="col-sm-4 Hpicture" role="row">
+                                    <a href="Home/Product/@r.product.ProductId"><img style="width:190px;height:70px;" src=@r.product.Hpicture></a>
+                                </div>
+                                <div class="col-sm-3" role="row">
+                                    @foreach (var t in r.type)
+                                    {
+                                        <h5>@t.Type</h5>
+                                    }
+                                </div>
+                                <a href="Home/Product/@r.product.ProductId"><h3>@r.product.Name</h3></a>
+                                @if (r.product.Discount != 1)
+                                {
+                                    <p>¥@r.product.Price @r.product.Discount%off <s>¥@r.product.Id</s></p><!--此处的ID不是ID 是原价--->
+
+                                }
+                                else
+                                {
+                                    <p>¥@r.product.Price </p>
+                                }<!--r.product.Discount != 1 为未有折扣--->
+                            </div>
+                        </li>
+
+                    }
+
+
+                </ul>
+            </div>
+
+            <div class="tab-pane" id="coming">
+                <ul class="list-group">
+                    @foreach (var c in Model.coming)
+                    {
+                        <li class="list-group-item">
+                            <div class=" col-sm-12">
+                                <div class="col-sm-4 Hpicture" role="row">
+                                    <a href="Home/Product/@c.product.ProductId"><img style="width:190px;height:70px;" src=@c.product.Hpicture></a>
+                                </div>
+                                <div class="col-sm-3" role="row">
+                                    @foreach (var t in c.type)
+                                    {
+                                        <h5>@t.Type</h5>
+                                    }
+                                </div>
+                                <a href="Home/Product/@c.product.ProductId"><h3>@c.product.Name</h3></a>
+                                @if (c.product.Discount != 1)
+                                {
+                                    <p>¥@c.product.Price @c.product.Discount%off <s>¥@c.product.Id</s></p><!--此处的ID不是ID 是原价--->
+
+                                }
+                                else
+                                {
+                                    <p>¥@c.product.Price </p>
+                                }<!--r.product.Discount != 1 为未有折扣--->
+                            </div>
+                        </li>
+
+                    }
+
+
+                </ul>
+
+            </div>
+
+            <div class="tab-pane" id="disco">
+                <ul class="list-group">
+                    @foreach (var d in Model.disco)
+                    {
+                        <li class="list-group-item">
+                            <div class=" col-sm-12">
+                                <div class="col-sm-4 Hpicture" role="row">
+                                    <a href="Home/Product/@d.product.ProductId"><img style="width:190px;height:70px;" src=@d.product.Hpicture></a>
+                                </div>
+                                <div class="col-sm-3" role="row">
+                                    @foreach (var t in d.type)
+                                    {
+                                        <h5>@t.Type</h5>
+                                    }
+                                </div>
+                                <a href="Home/Product/@d.product.ProductId"><h3>@d.product.Name</h3></a>
+                                @if (d.product.Discount != 1)
+                                {
+                                    <p>¥@d.product.Price @d.product.Discount%off <s>¥@d.product.Id</s></p><!--此处的ID不是ID 是原价--->
+
+                                }
+                                else
+                                {
+                                    <p>¥@d.product.Price </p>
+                                }<!--r.product.Discount != 1 为未有折扣--->
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
