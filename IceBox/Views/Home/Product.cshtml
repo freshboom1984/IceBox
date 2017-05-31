@@ -18,9 +18,9 @@
             @if (Model.Discount != 100)
             {
                 <span class="game-discount">-@Model.Discount%</span>
-                <span class="game-price"><s>@Model.Id</s></span><!--原价-->
+                <span class="game-price"><s>¥@Model.Id</s></span><!--原价-->
             }  <!--Model.Discount != 100 即有折扣，不是100%off-->   
-            <span class="game-price">@Model.Price</span>
+            <span class="game-price">¥@Model.Price</span>
             
         </div>
         <br />
@@ -77,7 +77,7 @@
 
         <div class="tab-pane  active" id="p1">
             <div class="col-md-6">
-                <img src="~/@Model.Spicture" />
+                <img src="~/@Model.Spicture1" />
             </div>
             <div class="col-md-1">
 
@@ -91,7 +91,7 @@
 
         <div class="tab-pane" id="p2">
             <div class="col-md-6">
-                <img src="p-img/p2.jpg" />
+                <img src="~/@Model.Spicture2" />
             </div>
             <div class="col-md-1">
 

@@ -128,7 +128,7 @@
                                     }
                                 </div>
                                 <a href="Home/Product/@r.product.ProductId"><h3>@r.product.Name</h3></a>
-                                @if (r.product.Discount != 1)
+                                @if (r.product.Discount != 100)
                                 {
                                     <p>¥@r.product.Price @r.product.Discount%off <s>¥@r.product.Id</s></p><!--此处的ID不是ID 是原价--->
 
@@ -162,7 +162,7 @@
                                     }
                                 </div>
                                 <a href="Home/Product/@c.product.ProductId"><h3>@c.product.Name</h3></a>
-                                @if (c.product.Discount != 1)
+                                @if (c.product.Discount != 100)
                                 {
                                     <p>¥@c.product.Price @c.product.Discount%off <s>¥@c.product.Id</s></p><!--此处的ID不是ID 是原价--->
 
@@ -197,7 +197,7 @@
                                     }
                                 </div>
                                 <a href="Home/Product/@d.product.ProductId"><h3>@d.product.Name</h3></a>
-                                @if (d.product.Discount != 1)
+                                @if (d.product.Discount != 100)
                                 {
                                     <p>¥@d.product.Price @d.product.Discount%off <s>¥@d.product.Id</s></p><!--此处的ID不是ID 是原价--->
 

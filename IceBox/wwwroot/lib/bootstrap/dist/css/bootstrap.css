@@ -238,9 +238,10 @@ th {
   h3 {
     page-break-after: avoid;
   }
-  .navbar {
-    display: none;
-  }
+    .navbar {
+        display: none;
+        
+    }
   .btn > .caret,
   .dropup > .btn > .caret {
     border-top-color: #000 !important;
@@ -3972,9 +3973,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-left: -1px;
 }
 .nav {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+
+
+    
 }
 .nav > li {
   position: relative;
@@ -4022,12 +4026,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   float: left;
   margin-bottom: -1px;
 }
-.nav-tabs > li > a {
-  margin-right: 2px;
-  line-height: 1.42857143;
-  border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
-}
+    .nav-tabs > li > a {
+        margin-right: 2px;
+        line-height: 1.42857143;
+        border: 1px solid transparent;
+        border-radius: 4px 4px 0 0;
+    }
 .nav-tabs > li > a:hover {
   border-color: #eee #eee #ddd;
 }
@@ -4164,6 +4168,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top-right-radius: 0;
 }
 .navbar {
+
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
@@ -4171,7 +4176,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .navbar {
-    border-radius: 4px;
+    
   }
 }
 @media (min-width: 768px) {
