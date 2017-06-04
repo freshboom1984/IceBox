@@ -19,6 +19,15 @@ namespace IceBox.Models
         public ProductTable product { get; set; }
         public List<TypeTable> type { get; set; }
     }
+    public class CartItem
+    {
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public double Discount { get; set; }
+        public double RealPrice { get; set; }
+        public string Hpicture { get; set; }
+        public int qty { get; set; }
+    }
 
-     
+
 }

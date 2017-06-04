@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using IceBox.Models;
+
 namespace IceBox.Controllers
 {
     public class HomeController : Controller
@@ -15,6 +16,7 @@ namespace IceBox.Controllers
         }
         public IActionResult Index()
         {
+            
             ViewModel VM = new ViewModel();
             VM.news = new List<NewsTable>();
             VM.special = new List<ProductTable>();

@@ -1,0 +1,122 @@
+@{
+    int cartRow = 0;
+    double sum = 0;
+}
+@using IceBox.Models;
+<link rel="stylesheet" type="text/css" href="lib/css/cart-style.css">
+<!--------------------------------------------------->
+<script>
+    function _doEdit(row){
+        document.getElementById('edit_' + row).style.display = 'none';
+        document.getElementById('update_' + row).style.display = 'block';
+        document.getElementById('qtyDsp_' + row).style.display = 'none';
+        document.getElementById('qtyIn_' + row).style.display = 'block';
+    }
+    function _doUpdate(row, oldvalue, retUrl) {
+        var newValue = document.getElementById('inQty_' + row).value;
+        if (newValue != oldvalue) {
+            window.location.assign("/Cart/updateCartRow/" + row + "?value=" + newValue + "&retUrl=" + retUrl);
+        }
+        else
+            _doCancel(row);
+    }
+    function _doCancel(row) {
+        document.getElementById('edit_' + row).style.display = 'block';
+        document.getElementById('update_' + row).style.display = 'none';
+        document.getElementById('qtyDsp_' + row).style.display = 'block';
+        document.getElementById('qtyIn_' + row).style.display = 'none';
+    }
+    function _doDelete(row, retUrl) {
+        window.location.assign("/Cart/deleCartRow/" + row + "?retUrl=" + retUrl);
+    }
+    function _doFaviDelete(row, retUrl) {
+        window.location.assign("/Cart/deleFaviRow/" + row + "?retUrl=" + retUrl);
+    }
+    function _doStore(row, retUrl) {
+        window.location.assign("/Cart/storeCartRow/" + row + "?retUrl=" + retUrl);
+    }
+    function _doBuy(row, retUrl) {
+        window.location.assign("/Cart/buyFaviRow/" + row + "?retUrl=" + retUrl);
+    }
+</script>
+@if (ViewBag.cart != null && ((List<CartItem>)ViewBag.cart).Count >= 1)
+{
+    <div class="container cart">
+        <h2>您的购物车</h2>
+        <hr style="height:1px;border:none;border-top:1px dashed #808080;" />
+        <div>
+            <ul>
+                @foreach (var cartItem in ViewBag.cart as List<CartItem>)
+                {
+                    <li style="line-height:5">
+                        <div class="col-lg-12">
+                            <div class="col-lg-4"><img src="~/@cartItem.Hpicture" style="height:70px;width:190px;" /></div>
+                            <div class="col-lg-6">
+                                @if (cartItem.Discount != 1)
+                                {
+                                    <p>@cartItem.Name  <span class="game-price"><s>¥@cartItem.Price</s></span>   ¥@cartItem.RealPrice</p>
+
+                                }
+                                else
+                                {
+                                    <p><span class="game-price">@cartItem.Name   ¥@cartItem.Price</span></p>
+                                }
+                            </div>
+                            <div class="col-lg-2"><a href="javascript:_doDelete(@cartRow,'@ViewBag.continueBuy')" style="color:#330099;">删除</a></div>
+                            
+                        </div>  
+                        
+                    </li>
+                    
+                    cartRow++;
+
+                }
+            </ul>
+            
+            
+        </div>
+        
+        <div class="col-lg-12 tip">
+            <hr style="height:1px;border:none;border-top:1px dashed #808080;" />
+            
+                
+                @foreach (var cartItem in ViewBag.cart as List<CartItem>)
+                {
+                    sum += cartItem.RealPrice;
+                    cartRow++;
+                    
+
+                }
+            <p>小计: @sum</p>
+            <table style="width:95%;margin:0px;padding:0px;">
+                <tr>
+                    <td style="text-align:left;"><a href="~/Home">继续选购</a></td>
+                    <td style="text-align:right;"><a href="/Order">结算</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="container cart">
+        <h2>您的购物车</h2>
+        <hr style="height:1px;border:none;border-top:1px dashed #808080;" />
+        <p>N/A</p>
+
+        <div class="col-lg-12 tip">
+            <hr style="height:1px;border:none;border-top:1px dashed #808080;" />
+            
+
+            <table style="width:95%;margin:0px;padding:0px;">
+                <tr>
+                    <td style="text-align:left;"><a href="~/Home">继续选购</a></td>
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+
+}
+
