@@ -24,6 +24,7 @@ namespace IceBox.Controllers
         [Authorize]
         public IActionResult Index()
         {
+
             ViewBag.Request = Request;
             string uid = User.Identity.Name;
             OrderViewModel ovm = new OrderViewModel();
@@ -52,6 +53,7 @@ namespace IceBox.Controllers
                 }
             }
             return View("Order", ovm);
+
         }
     }
 }
