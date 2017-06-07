@@ -1,7 +1,18 @@
 ﻿@using IceBox.Models;
 @{ 
+
     int orderNo = 0;
+
 }
 <link rel="stylesheet" type="text/css" href="lib/css/cart-style.css">
 <!--------------------------------------------------->
 <p>确认您的订单</p>
+
+@{
+    foreach (var order in Model.orders)
+    {
+        
+        orderNo++;
+    }
+}
+

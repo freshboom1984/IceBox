@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using System.ComponentModel.DataAnnotations;
+
 
 namespace IceBox.Models
 {
@@ -9,13 +11,16 @@ namespace IceBox.Models
         public Customer()
         {
             Consignee = new HashSet<Consignee>();
+
             Order = new HashSet<Order>();
+
         }
 
         public int ObjId { get; set; }
         public string UserName { get; set; }
         public string UserId { get; set; }
         public int? TheCustomerType { get; set; }
+
         [Display(Name = "电子邮箱")]
         public string Email { get; set; }
         [Display(Name = "移动电话")]
@@ -31,5 +36,15 @@ namespace IceBox.Models
         public virtual ICollection<Order> Order { get; set; }
 
         public virtual CustomerType TheCustomerTypeNavigation { get; set; }
+
+        public string Email { get; set; }
+        public string MobilePhone { get; set; }
+        public string OfficePhone { get; set; }
+        public string HomePhone { get; set; }
+        public string QqNumber { get; set; }
+        public DateTime? RegistDate { get; set; }
+
+        public virtual ICollection<Consignee> Consignee { get; set; }
+
     }
 }

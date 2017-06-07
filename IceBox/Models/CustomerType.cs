@@ -5,6 +5,7 @@ namespace IceBox.Models
 {
     public partial class CustomerType
     {
+
         public CustomerType()
         {
             Customer = new HashSet<Customer>();
@@ -16,5 +17,6 @@ namespace IceBox.Models
 
         public virtual ICollection<Customer> Customer { get; set; }
         
+
     }
 }

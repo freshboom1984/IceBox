@@ -82,9 +82,17 @@ namespace IceBox.Models
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasKey(e => e.ObjId)
+
                      .HasName("PK__tmp_ms_x__530A638C18D5C261");
 
                 entity.Property(e => e.ObjId).HasColumnName("objId");
+
+                    .HasName("PK__Customer__530A638CF3BFCC22");
+
+                entity.Property(e => e.ObjId)
+                    .HasColumnName("objId")
+                    .ValueGeneratedNever();
+
 
                 entity.Property(e => e.Email)
                     .IsRequired()
@@ -121,10 +129,12 @@ namespace IceBox.Models
                 entity.Property(e => e.UserName)
                     .HasColumnName("userName")
                     .HasMaxLength(256);
+
                 entity.HasOne(d => d.TheCustomerTypeNavigation)
                     .WithMany(p => p.Customer)
                     .HasForeignKey(d => d.TheCustomerType)
                     .HasConstraintName("FK__Customer__theCus__5CD6CB2B");
+
             });
 
             modelBuilder.Entity<CustomerType>(entity =>

@@ -30,6 +30,10 @@ namespace IceBox.Models
         public string Hpicture { get; set; }
         public int qty { get; set; }
     }
+    public class OrderViewModel
+    {
+        public string name;
+
 
     public class PagingInfo
     {
@@ -37,6 +41,7 @@ namespace IceBox.Models
         public int ItemsPerPage { get; set; }
         public int CurrentPage { get; set; }
         public int TotalPages => (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
+
     }
 
     public class OrderViewModel
@@ -74,18 +79,18 @@ namespace IceBox.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "µ±Ç°ÃÜÂë")]
+        [Display(Name = "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½")]
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} ±ØĞëÖÁÉÙ°üº¬ {2} ¸ö×Ö·û¡£", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù°ï¿½ {2} ï¿½ï¿½ï¿½Ö·ï¿½", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "ĞÂÃÜÂë")]
+        [Display(Name = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "È·ÈÏĞÂÃÜÂë")]
-        [Compare("NewPassword", ErrorMessage = "ĞÂÃÜÂëºÍÈ·ÈÏÃÜÂë²»Æ¥Åä¡£")]
+        [Display(Name = "È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+        [Compare("NewPassword", ErrorMessage = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ë²»Æ¥ï¿½ä¡£")]
         public string ConfirmPassword { get; set; }
         //public LocalPasswordModel PassWordModel { get; set; }
         public RegisterModel CustomerInfo { get; set; }
