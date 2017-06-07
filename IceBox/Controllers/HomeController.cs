@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using IceBox.Models;
+
 namespace IceBox.Controllers
 {
     public class HomeController : Controller
@@ -15,6 +16,7 @@ namespace IceBox.Controllers
         }
         public IActionResult Index()
         {
+            
             ViewModel VM = new ViewModel();
             VM.news = new List<NewsTable>();
             VM.special = new List<ProductTable>();
@@ -25,7 +27,7 @@ namespace IceBox.Controllers
             //写入NEWS
             //第一个有active 无法用foreach       
             //其他可以使用foreach
-            var news = db.NewsTable;
+            var news = db.NewsTable; 
             foreach (var p in news)
             {
                 NewsTable pl = new NewsTable();
@@ -79,7 +81,7 @@ namespace IceBox.Controllers
                     Name = p.Name,
                     Price = p.Price * p.Discount,
                     Hpicture = p.Hpicture,
-                    Discount = p.Discount,
+                    Discount = p.Discount*100,//去除小数点
                     Id = (int)p.Price                    
                 };
                 /////////////////类型写入///////////////////////（或许应该使用子函数）                        
@@ -110,7 +112,7 @@ namespace IceBox.Controllers
                     Name = p.Name,
                     Price = p.Price * p.Discount,
                     Hpicture = p.Hpicture,
-                    Discount = p.Discount,
+                    Discount = p.Discount * 100,
                     Id = (int)p.Price
                 };
 
@@ -131,7 +133,7 @@ namespace IceBox.Controllers
             //END
 
             //打折
-            var disco = db.ProductTable.Take(7);
+            var disco = db.ProductTable.Where<ProductTable>(m=>m.Discount<1).OrderBy<ProductTable,float>(m=>(float)m.Discount).Take(10);
             foreach (var p in disco)
             {
                 var pl = new ProductList();
@@ -142,7 +144,7 @@ namespace IceBox.Controllers
                     Name = p.Name,
                     Price = p.Price * p.Discount,
                     Hpicture = p.Hpicture,
-                    Discount = p.Discount,
+                    Discount = p.Discount * 100,
                     Id = (int)p.Price
                 };
 
