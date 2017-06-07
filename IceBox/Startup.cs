@@ -44,8 +44,9 @@ namespace IceBox
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ////////
+            ////////           
             services.AddSession();
+            
             ///////
             //services.AddMvc();
             services.AddMvc().AddMvcOptions(opts =>
@@ -65,7 +66,7 @@ namespace IceBox
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
         }
-        
+
 
 
 
@@ -89,7 +90,7 @@ namespace IceBox
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
 
-            
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -119,7 +120,7 @@ namespace IceBox
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            
+
         }
     }
 }

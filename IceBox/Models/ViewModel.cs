@@ -28,6 +28,10 @@ namespace IceBox.Models
         public string Hpicture { get; set; }
         public int qty { get; set; }
     }
+    public class OrderViewModel
+    {
+        public string name;
 
+    }
 
 }

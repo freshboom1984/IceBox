@@ -27,7 +27,7 @@ namespace IceBox.Controllers
             //写入NEWS
             //第一个有active 无法用foreach       
             //其他可以使用foreach
-            var news = db.NewsTable;
+            var news = db.NewsTable; 
             foreach (var p in news)
             {
                 NewsTable pl = new NewsTable();

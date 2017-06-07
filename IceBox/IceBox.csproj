@@ -9,12 +9,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <UserSecretsId>aspnet-IceBox-35643ad5-c075-4055-95bb-fd6e12d0b959</UserSecretsId>
+    <UserSecretsId>aspnet-IceBox-ccf773f3-faef-4307-9c73-cb03a7972983</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Infrastructure\RemotePost.cs" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
@@ -32,6 +28,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="4.3.0" />
+    <PackageReference Include="System.Security.Cryptography.Csp" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
