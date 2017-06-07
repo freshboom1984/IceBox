@@ -36,7 +36,7 @@ namespace IceBox.Controllers
             foreach (int [] i in curCart)
             {
                 int curId = i[0];
-                int curQty = i[1];
+                //int curQty = i[1];
                 CartItem cartItem = (from p in db.ProductTable
                                      where p.ProductId == curId
                                      select
