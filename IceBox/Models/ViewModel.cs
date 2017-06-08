@@ -30,9 +30,7 @@ namespace IceBox.Models
         public string Hpicture { get; set; }
         public int qty { get; set; }
     }
-    public class OrderViewModel
-    {
-        public string name;
+    
 
 
     public class PagingInfo
@@ -74,23 +72,34 @@ namespace IceBox.Models
         public string productFeature { get; set; }
         public string smallImg { get; set; }
     }
+    public class PayRequestInfo
+    {
+        public string PostUrl { get; set; }
+        public string MerId { get; set; }
+        public string Amt { get; set; }
+        public string PaymentTypeObjId { get; set; }
+        public string MerTransId { get; set; }
+        public string ReturnUrl { get; set; }
+        public string CheckValue { get; set; }
+
+    }
 
     public class MemberHomeModel
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "��ǰ����")]
+        [Display(Name = "当前密码")]
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} �������ٰ� {2} ���ַ�", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "������")]
+        [Display(Name = "新密码")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "ȷ��������")]
-        [Compare("NewPassword", ErrorMessage = "�������ȷ�����벻ƥ�䡣")]
+        [Display(Name = "确认新密码")]
+        [Compare("NewPassword", ErrorMessage = "新密码和确认密码不匹配。")]
         public string ConfirmPassword { get; set; }
         //public LocalPasswordModel PassWordModel { get; set; }
         public RegisterModel CustomerInfo { get; set; }

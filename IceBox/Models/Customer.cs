@@ -37,14 +37,7 @@ namespace IceBox.Models
 
         public virtual CustomerType TheCustomerTypeNavigation { get; set; }
 
-        public string Email { get; set; }
-        public string MobilePhone { get; set; }
-        public string OfficePhone { get; set; }
-        public string HomePhone { get; set; }
-        public string QqNumber { get; set; }
-        public DateTime? RegistDate { get; set; }
-
-        public virtual ICollection<Consignee> Consignee { get; set; }
+        
 
     }
 }
