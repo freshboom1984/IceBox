@@ -51,6 +51,7 @@ namespace IceBox.Controllers
             {
 
                 var pl = new ProductTable();
+                pl.Hdiscribe = p.Hdiscribe;
                 pl.ProductId = p.ProductId;
                 pl.Name = p.Name;
                 pl.Price = p.Price*p.Discount;//现价
