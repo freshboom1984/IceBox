@@ -58,8 +58,9 @@ namespace IceBox.Controllers
         {
             ViewBag.Request = Request;
             //更新客户联系信息
-            /*
+            
             Customer curCust = db.Customer.Single(m => m.ObjId == ovm.curCustomer.ObjId);
+            /*
             //var manager = new UserManager<ApplicationUser, int>(new UserStore<ApplicationUser, ApplicationRole, int, ApplicationUserLogin, ApplicationUserRole, ApplicationUserClaim>(new ApplicationDbContext()));
             //var c = manager.FindById<ApplicationUser, int>(ovm.curCustomer.objId);
             if (curCust.MobilePhone != ovm.curCustomer.MobilePhone && ovm.curCustomer.MobilePhone != "")
@@ -79,8 +80,8 @@ namespace IceBox.Controllers
             bool succeed = true;
             int payId = 0;
             int curZip;
-            try
-            {
+            
+            
                 //using (TransactionScope ts = new TransactionScope())
                 //{
                 EntityEntry<Payment> p = db.Payment.Add(new Payment());
@@ -92,7 +93,7 @@ namespace IceBox.Controllers
                 {
                     EntityEntry<Consignee> cons = db.Consignee.Add(new Consignee());
                     //cons.Entity.TheArea = int.Parse(Request.Form["selDist_" + i]);
-                    ////cons.Entity.TheCustomer = curCust.ObjId;
+                    cons.Entity.TheCustomer = curCust.ObjId;
                     cons.Entity.Name = Request.Form["name_" + i].ToString().Trim();
                     cons.Entity.RoadName = Request.Form["road_" + i].ToString().Trim();
                     cons.Entity.StreetName = Request.Form["street_" + i].ToString().Trim();
@@ -109,7 +110,7 @@ namespace IceBox.Controllers
                     EntityEntry<Order> o = db.Order.Add(new Order());
                     o.Entity.ThePayment = p.Entity.ObjId;
                     o.Entity.TheConsignee = cons.Entity.ObjId;
-                    ////o.Entity.TheCustomer = curCust.ObjId;
+                    o.Entity.TheCustomer = curCust.ObjId;
                     o.Entity.TheProduct = int.Parse(Request.Form["productId_" + i].ToString().Trim());
                     o.Entity.OrderState = 0;
                     o.Entity.OrderTime = DateTime.Now;
@@ -125,12 +126,12 @@ namespace IceBox.Controllers
                     payId = p.Entity.ObjId;
                     //ts.Complete();
                 }
-            }
-            catch
-            {
+            
+            
+            
                 succeed = false;
                 Response.WriteAsync("<script>alert('数据未成功保存，请重新尝试！');</script>");
-            }
+            
             if (succeed)
             {//进入支付处理
                 string paymentUrl = "", paymentMethod = "";
@@ -145,6 +146,8 @@ namespace IceBox.Controllers
                 }
                 //string merchantId = "Flower001";
                 //string returnUrl = "http://" + Request.Host + Url.Action("Index", "Payment");
+
+
                 //string amtStr = Request.Form["paymentAmt"];
                 //string merTransId = payId.ToString();
                 //根据paymentMethod产生提交付款的对象并提交。以下为暂时的写法，无扩展性。

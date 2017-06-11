@@ -41,7 +41,12 @@ namespace IceBox.Models
         public int TotalPages => (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
 
     }
-
+    public class SeachViewModel
+    {
+        
+        public List<ProductTable> special { get; set; }
+    }
+    
     public class OrderViewModel
     {
         public Customer curCustomer { get; set; }
