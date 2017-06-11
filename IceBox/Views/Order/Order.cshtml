@@ -1,5 +1,5 @@
-﻿@using IceBox.Models;
-@using Microsoft.AspNetCore.Http;
+﻿@model IceBox.Models.OrderViewModel
+@using Microsoft.AspNetCore.Http
 
 @{ 
 
@@ -14,73 +14,16 @@
         function validateCurStepInput() { //客户端验证输入是否遗漏
             switch (document.getElementById("curStep").value) {
                 case "step1":
-                    /*var mPhone = document.getElementById("txtMPhone").value.trim();
-                    var oPhone = document.getElementById("txtOPhone").value.trim();
-                    var hPhone = document.getElementById("txtHPhone").value.trim();
-                    var email = document.getElementById("txtEmail").value.trim();
-                    var qq = document.getElementById("txtQQ").value.trim();
-                    if (mPhone != "") document.getElementById("custMobile").innerText = mPhone;
-                    if (oPhone != "") document.getElementById("custOffice").innerText = oPhone;
-                    if (hPhone != "") document.getElementById("custHome").innerText = hPhone;
-                    if (email != "") document.getElementById("custEmail").innerText = email;
-                    if (qq != "") document.getElementById("custQQ").innerText = qq;
-                    document.getElementById("s1Valid").value = "true";*/
+                    
+                    document.getElementById("s1Valid").value = "true";
                     return true;
                 case "step2":
-                    /*
-                    var err = "";
-                    var ordNo = document.getElementById("orderQty").value;
-                    for (var i = 0; i < ordNo; i++) {
-                        var first = true;
-                        var receiver = document.getElementById("name_" + i).value.trim();
-                        if (receiver == "") {
-                            first = false;
-                            err += "\n订单" + i + "：收花人姓名。";
-                        }
-                        else {
-                            document.getElementById("receiverName_" + i).innerText = receiver;
-                        }
-                        var address = document.getElementById("road_" + i).value.trim() +
-                            document.getElementById("street_" + i).value.trim() +
-                            document.getElementById("door_" + i).value.trim();
-                        if (address == "") {
-                            if (first) {
-                                first = false;
-                                err += "\n订单" + i + "：";
-                            }
-                            err += "收花人地址。";
-                        }
-                        else {
-                            document.getElementById("receiverAddr_" + i).innerText =
-                                document.getElementById("selPro_" + i).title +
-                                document.getElementById("selCity_" + i).title +
-                                document.getElementById("selDist_" + i).title + address;
-                        }
-                        if (document.getElementById("mobile_" + i).value.trim() != "") {
-                            document.getElementById("receiverMobile_" + i).innerText = document.getElementById("mobile_" + i).value.trim();
-                        }
-                        else if (document.getElementById("home_" + i).value.trim() != "") {
-                            document.getElementById("receiverHome_" + i).innerText = document.getElementById("home_" + i).value.trim();
-                        }
-                        else if (document.getElementById("office_" + i).value.trim() != "") {
-                            document.getElementById("receiverOffice_" + i).innerText = document.getElementById("office_" + i).value.trim();
-                        }
-                        else {
-                            if (first) { err += "\n订单" + i + "："; }
-                            err += "收花人联系电话。";
-                        }
-                    }
-                    if (err == "") {
+                    
                         document.getElementById("s2Valid").value = "true";
                         return true;
-                    }
-                    else {
-                        alert("请补充输入以下信息：\n" + err);
-                        return false;
-                    }
-                    */
+                    
+                   
                 case "step3":
-                    /*
                     if (document.getElementById("paymentType").value != -1) {
                         document.getElementById("s3Valid").value = "true";
                         return true;
@@ -89,9 +32,6 @@
                         alert("请选择付款方式！");
                         return false;
                     }
-                    */
-                    document.getElementById("s3Valid").value = "true";
-                    return true;
                 case "step4":
                     return true;
             }
@@ -157,11 +97,11 @@
             }
         }
         function doSubmit() {
-            /*if (document.getElementById("s2Valid").value == "false") {
+            if (document.getElementById("s2Valid").value == "false") {
                 alert("请输入订单信息！");
                 step2();
             }
-            else */if (document.getElementById("s3Valid").value == "false") {
+            else if (document.getElementById("s3Valid").value == "false") {
                 alert("请选择支付方式！");
                 step3();
             }
@@ -290,53 +230,89 @@
     <form id="orderForm" action="~/Order" method="post">
         @*AntiForgery.GetHtml()*@
         <!--input id="orderQty" name="orderQty" type="hidden" value="@Model.orderQty" /-->
-        @*Html.HiddenFor(m => m.orderQty)*@
+        @Html.HiddenFor(m => m.orderQty)
         <table>
             <tr style="width:100%">
                 <td id="leftSide" style="width:18%;text-align:left;vertical-align:top;">
                     <ol style="margin-top:60px">
-                        <li id="s1" style="background:#BEBEBE;"><a href="javascript: step1();">#1</a></li>
-                        <li id="s2" style="background:white;"><a href="javascript: step2();">#2</a></li>
-                        <li id="s3" style="background:white;"><a href="javascript: step3();">#3</a></li>
-                        <li id="s4" style="background:white;"><a href="javascript: step4();">#4</a></li>
+                        <li id="s1" style="background:#BEBEBE;"><a href="javascript: step1();">确认联系信息</a></li>
+                        <li id="s2" style="background:white;"><a href="javascript: step2();">输入送货信息</a></li>
+                        <li id="s3" style="background:white;"><a href="javascript: step3();">选择付款方式</a></li>
+                        <li id="s4" style="background:white;"><a href="javascript: step4();">确认订单</a></li>
                     </ol>
                 </td>
                 <td id="contentPages" style="width:82%;text-align:center;">
                     <div id="contactInfo" style="display:block;">
                         <h3>确认您的联系信息</h3>
-                        <!--
-                            
-                        
                         <table style="width:100%;font:14px;">
                             <tr>
-                                <td class="right">@**@Html.LabelFor(m => m.curCustomer.MobilePhone)</td>
-                                <td class="left">@**@Html.TextBoxFor(m => m.curCustomer.MobilePhone, new { id = "txtMPhone" })@*<input type="text" id="txtMPhone" name="txtMPhone" value="@curUser.mobilePhone" />*@</td>
+                                <td class="right">@Html.LabelFor(m => m.curCustomer.MobilePhone)</td>
+                                <td class="left">@Html.TextBoxFor(m => m.curCustomer.MobilePhone, new { id = "txtMPhone" })@*<input type="text" id="txtMPhone" name="txtMPhone" value="@curUser.mobilePhone" />*@</td>
                             </tr>
                             <tr>
-                                <td class="right">@**@Html.LabelFor(m => m.curCustomer.OfficePhone)</td>
-                                <td class="left">@**@Html.TextBoxFor(m => m.curCustomer.OfficePhone, new { id = "txtOPhone" })</td>
+                                <td class="right">@Html.LabelFor(m => m.curCustomer.OfficePhone)</td>
+                                <td class="left">@Html.TextBoxFor(m => m.curCustomer.OfficePhone, new { id = "txtOPhone" })</td>
                             </tr>
                             <tr>
-                                <td class="right">@**@Html.LabelFor(m => m.curCustomer.HomePhone)</td>
-                                <td class="left">@**@Html.TextBoxFor(m => m.curCustomer.HomePhone, new { id = "txtHPhone" })</td>
+                                <td class="right">@Html.LabelFor(m => m.curCustomer.HomePhone)</td>
+                                <td class="left">@Html.TextBoxFor(m => m.curCustomer.HomePhone, new { id = "txtHPhone" })</td>
                             </tr>
                             <tr>
-                                <td class="right">@**@Html.LabelFor(m => m.curCustomer.Email)</td>
-                                <td class="left">@**@Html.TextBoxFor(m => m.curCustomer.Email, new { id = "txtEmail" })</td>
+                                <td class="right">@Html.LabelFor(m => m.curCustomer.Email)</td>
+                                <td class="left">@Html.TextBoxFor(m => m.curCustomer.Email, new { id = "txtEmail" })</td>
                             </tr>
                             <tr>
-                                <td class="right">@**@Html.LabelFor(m => m.curCustomer.QqNumber)</td>
-                                <td class="left">@**@Html.TextBoxFor(m => m.curCustomer.QqNumber, new { id = "txtQQ" })</td>
+                                <td class="right">@Html.LabelFor(m => m.curCustomer.QqNumber)</td>
+                                <td class="left">@Html.TextBoxFor(m => m.curCustomer.QqNumber, new { id = "txtQQ" })</td>
                             </tr>
                         </table>
-                        @**@Html.HiddenFor(m => m.curCustomer.TheCustomerType)
-                        @**@Html.HiddenFor(m => m.curCustomer.ObjId)
-                            -->
+                        @Html.HiddenFor(m => m.curCustomer.TheCustomerType)
+                        @Html.HiddenFor(m => m.curCustomer.ObjId)
                         <input id="step1next" type="button" value="下一步" onclick="javascript: step2();" />
                     </div>
                     <div id="receiverInfo" style="display:none;">
                         <h3>输入订单信息</h3>
-                       
+                        <table border="1" style="border-width:1px;border-collapse:collapse;width:100%;">
+                            <tr>
+                                <th>#</th>
+                                <th>收花人信息</th>
+                                <th>送花留言</th>
+                                <th>鲜花信息</th>
+                            </tr>
+                            @foreach (var cartItem in Model.orders)
+                            {
+                                <tr>
+                                    <td>订单<span>@orderNo</span></td>
+                                    <td style="text-align:left;width:350px">
+                                        姓名：<!--@*input id="name_@orderNo" name="name_@orderNo" type="text" class="left"value="@Request.Form["name_"+orderNo]" /*@-->
+                                        <input id="name_@orderNo" name="name_@orderNo" type="text" class="left" /><br />
+                                        省：<select id="selPro_@orderNo" onchange="provinceChanged(@orderNo);" style="width:70px;"></select>
+                                        市：<select id="selCity_@orderNo" onchange="cityChanged(@orderNo);" style="width:70px;"></select><br />
+                                        区：<select id="selDist_@orderNo" name="selDist_@orderNo" onchange="distChanged(@orderNo);" style="width:70px;"></select><br />
+                                        路名：<input id="road_@orderNo" name="road_@orderNo" type="text" class="left" /><br />
+                                        街名：<input id="street_@orderNo" name="street_@orderNo" type="text" class="left" /><br />
+                                        门牌：<input id="door_@orderNo" name="door_@orderNo" type="text" class="left" /><br />
+                                        邮编：<input id="zip_@orderNo" name="zip_@orderNo" type="text" class="left" /><br />
+                                        移动电话：<input id="mobile_@orderNo" name="mobile_@orderNo" type="text" class="left" /><br />
+                                        固定电话：<input id="home_@orderNo" name="home_@orderNo" type="text" class="left" /><br />
+                                        办公电话：<input id="office_@orderNo" name="office_@orderNo" type="text" class="left" /><br />
+                                        电子邮箱：<input id="email_@orderNo" name="email_@orderNo" type="text" class="left" /><br />
+                                        &nbsp;&nbsp;QQ号码：<input id="QQ_@orderNo" name="QQ_@orderNo" type="text" class="left" />
+                                    </td>
+                                    <td style="width:250px;"><textarea id="sendWord_@orderNo" name="sendWord_@orderNo" style="width:230px;height:220px;"></textarea></td>
+                                    <td style="text-align:left;width:300px;">
+                                        商品名称：<span>@Model.orders[orderNo].productName</span><br />
+                                        商品描述：<span>@Model.orders[orderNo].productFeature</span><br />
+                                        市场价格：<span>@Model.orders[orderNo].price</span><br />
+                                        <img src="/Images/@Model.orders[orderNo].smallImg" style="width:150px" /><br />
+                                        购买价格：<span>@Model.orders[orderNo].realPrice</span><br />
+                                        <input type="hidden" name="productId_@orderNo" value="@Model.orders[orderNo].theProduct" />
+                                        <input type="hidden" name="realPrice_@orderNo" value="@Model.orders[orderNo].realPrice" />
+                                    </td>
+                                </tr>
+                                orderNo++;
+                            }
+                        </table>
                         <input id="step2last" type="button" value="上一步" onclick="javascript: step1();" />
                         <input id="step2next" type="button" value="下一步" onclick="javascript: step3();" />
                     </div>
@@ -369,9 +345,9 @@
                                         orderNo = 0;
                                         foreach (var order in Model.orders)
                                         {
-                                            <span>订单</span><span>@orderNo</span><span>—：</span><span id="receiverName_@orderNo"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;地址：</span><span id="receiverAddr_@orderNo"></span><br />
-                                            <span>移动电话：</span><span id="receiverMobile_@orderNo"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;办公电话：</span><span id="receiverOffice_@orderNo"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;家庭电话：</span><span id="receiverHome_@orderNo"></span><br />
-                                            <span>商品名称：</span>@order.productName<span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>购买价格：</span>@order.realPrice<span>元</span><br /><br />
+                                            <span>订单</span><span>@orderNo</span><span>——收花人：</span><span id="receiverName_@orderNo"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;地址：</span><span id="receiverAddr_@orderNo"></span><br />
+                                                <span>联系电话——移动电话：</span><span id="receiverMobile_@orderNo"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;办公电话：</span><span id="receiverOffice_@orderNo"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;家庭电话：</span><span id="receiverHome_@orderNo"></span><br />
+                                                <span>鲜花详情——商品名称：</span>@order.productName<span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span>购买价格：</span>@order.realPrice<span>元</span><br /><br />
                                             orderNo++;
                                         }
                                     }
@@ -383,7 +359,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <input id="step4last" type="button" value="上一步" onclick="step3();" />
+                        <input id="step4last" type="button" value="上一步" onclick="javascript: step3();" />
                         <input id="submitForm" type="button" value="确认付款" onclick="javascript: doSubmit();" />
                     </div>
                 </td>
@@ -391,6 +367,19 @@
         </table>
     </form>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

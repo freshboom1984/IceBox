@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 /* 删除浏览器的默认样式 */
 *{margin:0;
@@ -91,7 +91,7 @@ a{text-decoration:none;}
 	text-align:center;
 }
 .copyright h4{
-	color:#CCC;
+	color:#c7c7c7;
 }
 .copyright ul{
 	float:right;
@@ -140,7 +140,7 @@ a{text-decoration:none;}
 }
 
 
-.
+
 
 
 
