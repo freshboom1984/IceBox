@@ -5,6 +5,10 @@ namespace IceBox.Models
 {
     public partial class Payment
     {
+        public Payment()
+        {
+            Order = new HashSet<Order>();
+        }
         public int ObjId { get; set; }
         public double? Amount { get; set; }
         public int? ThePaymentType { get; set; }
@@ -14,6 +18,7 @@ namespace IceBox.Models
         public string TransNo { get; set; }
         public int? PaymentState { get; set; }
 
+        public virtual ICollection<Order> Order { get; set; }
         public virtual PaymentType ThePaymentTypeNavigation { get; set; }
     }
 }

@@ -1,0 +1,25 @@
+﻿@model IQueryable<ProductTable>
+
+<div class="container seach">
+    <h1>Seach</h1>
+    <hr style="height:1px;border:none;border-top:1px dashed #808080;" />
+    <ul>
+        @foreach (var s in Model)
+        {
+            <li style="line-height:7">
+            <div class="container">
+                <div class="col-sm-4 Hpicture" role="row">
+                    <a href="~/Home/Product/@s.ProductId"><img style="height:70px;width:190px" src=~/@s.Hpicture></a>
+                </div>
+
+                    <a href="~/Home/Product/@s.ProductId"><h3>@s.Name</h3></a>
+            </div>
+            </li>
+                
+
+            
+        }
+    </ul>
+    <hr style="height:1px;border:none;border-top:1px dashed #808080;" />
+    <p>以上为搜索结果</p>
+</div>

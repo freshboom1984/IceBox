@@ -11,6 +11,10 @@
   <PropertyGroup>
     <UserSecretsId>aspnet-IceBox-ccf773f3-faef-4307-9c73-cb03a7972983</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\css\copyright-style.css" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />

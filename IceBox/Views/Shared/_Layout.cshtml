@@ -1,4 +1,6 @@
 ﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,19 +48,17 @@
 
                 <div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><input type="text" class="form-control" placeholder="查找" /></li>
-                        <li>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-search"></span><!--glyphicon样式，用于应用系统图标-->
-                            </a>
-                        </li>
+                        
+                        <li><a href="/Seach/Index"><span class="glyphicon glyphicon-search">搜索</span></a></li>
                         <li><a href="/Cart/Index"><span class="glyphicon glyphicon-shopping-cart">购物车</span></a></li>
-                        <li>
-                            @await Html.PartialAsync("_LoginPartial")
-                        </li>
-                        <li><a href="/Account/MemberHome">会员中心</a>
-                            </li>
+                        
+                        
+                            
+                        
+                        <li><a href="/Account/MemberHome">会员中心</a></li>
+                            
                     </ul>
+                    @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>
         </div>
@@ -111,6 +111,7 @@
 -->
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>

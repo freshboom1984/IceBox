@@ -2,7 +2,36 @@
     ViewData["Title"] = "Home Page";
 }
 @model ViewModel
+<link rel="stylesheet" type="text/css" href="~/css/copyright-style.css" />
 
+<script src="~/popover js/js/bootstrap.min.js"></script>
+<script src="~/popover js/js/jquery.min.js"></script>
+<script> 
+    $(function () {
+        $("[rel=drevil]").popover({
+            trigger: 'manual',
+            placement: 'left', //placement of the popover. also can use top, bottom, left or right
+            title: '<div style="text-align:center; color:red; text-decoration:underline; font-size:14px;"> Muah ha ha</div>', //this is the top title bar of the popover. add some basic css
+            html: 'true', //needed to show html of course
+            content: '<div id="popOverBox"><p>商品展示</p></div>', //this is the content of the html box. add the image here or anything you want really.
+            animation: true
+        }).on("mouseenter", function () {
+            var _this = this;
+            $(this).popover("show");
+            $(this).siblings(".popover").on("mouseleave", function () {
+                $(_this).popover('hide');
+            });
+        }).on("mouseleave", function () {
+            var _this = this;
+            setTimeout(function () {
+                if (!$(".popover:hover").length) {
+                    $(_this).popover("hide")
+                }
+            }, 100);
+        });
+
+    })
+</script>
 
 <!--slide-->
 <div id="slide" class="carousel slide" data-ride="carousel">
@@ -82,8 +111,8 @@
             {
 
                 <div class="col-sm-6 col-md-4">
-                    <a href="Home/Product/@s.ProductId"><img src=@s.Hpicture></a>
-                    <a href="Home/Product/@s.ProductId"><h3>@s.Name</h3></a>
+                    <a rel="drevil" href="Home/Product/@s.ProductId" title="@s.Name" data-content="<p>@s.Hdiscribe</P>"><img src=@s.Hpicture></a>
+                    <a  href="Home/Product/@s.ProductId"><h3>@s.Name</h3></a>
 
                     @if (s.Id != 0)
                     {

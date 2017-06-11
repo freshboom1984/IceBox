@@ -1,0 +1,12 @@
+﻿.copyright {
+    background: #333;
+    text-align: center;
+}
+
+    .copyright h4 {
+        color: #c7c7c7;
+    }
+
+    .copyright ul {
+        float: right;
+    }
