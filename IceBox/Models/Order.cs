@@ -21,12 +21,13 @@ namespace IceBox.Models
         public int? TheDeliverer { get; set; }
         public int? OrderState { get; set; }
 
+
         public virtual ICollection<Receipt> Receipt { get; set; }
         public virtual User TheClerkNavigation { get; set; }
         public virtual Consignee TheConsigneeNavigation { get; set; }
         public virtual Customer TheCustomerNavigation { get; set; }
         public virtual User TheDelivererNavigation { get; set; }
         public virtual Payment ThePaymentNavigation { get; set; }
-        public virtual ProductTable TheProductNavigation { get; set; }
+        public virtual ProductTable TheProductTableNavigation { get; set; }
     }
 }
