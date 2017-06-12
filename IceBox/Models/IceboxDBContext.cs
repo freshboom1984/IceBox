@@ -21,6 +21,7 @@ namespace IceBox.Models
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<TypeTable> TypeTable { get; set; }
         public virtual DbSet<User> User { get; set; }
+        
 
         public IceboxDBContext(DbContextOptions<IceboxDBContext> options) : base(options) { }
 
@@ -206,9 +207,8 @@ namespace IceBox.Models
                 entity.HasKey(e => e.ObjId)
                     .HasName("PK__Order__530A638C0800386E");
 
-                entity.Property(e => e.ObjId)
-                    .HasColumnName("objId")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.ObjId).HasColumnName("objId");
+                   
 
                 entity.Property(e => e.Amt).HasColumnName("amt");
 
@@ -229,6 +229,36 @@ namespace IceBox.Models
                 entity.Property(e => e.ThePayment).HasColumnName("thePayment");
 
                 entity.Property(e => e.TheProduct).HasColumnName("theProduct");
+
+                entity.HasOne(d => d.TheClerkNavigation)
+                    .WithMany(p => p.OrderTheClerkNavigation)
+                    .HasForeignKey(d => d.TheClerk)
+                    .HasConstraintName("FK__Order__theClerk__45BE5BA9");
+
+                entity.HasOne(d => d.TheConsigneeNavigation)
+                    .WithMany(p => p.Order)
+                    .HasForeignKey(d => d.TheConsignee)
+                    .HasConstraintName("FK__Order__theConsig__44CA3770");
+
+                entity.HasOne(d => d.TheCustomerNavigation)
+                    .WithMany(p => p.Order)
+                    .HasForeignKey(d => d.TheCustomer)
+                    .HasConstraintName("FK__Order__theCustom__1C1D2798");
+
+                entity.HasOne(d => d.TheDelivererNavigation)
+                    .WithMany(p => p.OrderTheDelivererNavigation)
+                    .HasForeignKey(d => d.TheDeliverer)
+                    .HasConstraintName("FK__Order__theDelive__46B27FE2");
+
+                entity.HasOne(d => d.ThePaymentNavigation)
+                    .WithMany(p => p.Order)
+                    .HasForeignKey(d => d.ThePayment)
+                    .HasConstraintName("FK__Order__thePaymen__42E1EEFE");
+
+                entity.HasOne(d => d.TheProductTableNavigation)
+                    .WithMany(p => p.Order)
+                    .HasForeignKey(d => d.TheProduct)
+                    .HasConstraintName("FK__Order__theProduc__41EDCAC5");
             });
 
             modelBuilder.Entity<Payment>(entity =>

@@ -80,7 +80,7 @@ namespace IceBox.Controllers
             bool succeed = true;
             int payId = 0;
             int curZip;
-            
+
             
                 //using (TransactionScope ts = new TransactionScope())
                 //{
@@ -125,12 +125,8 @@ namespace IceBox.Controllers
                     db.SaveChanges();
                     payId = p.Entity.ObjId;
                     //ts.Complete();
-                }
-            
-            
-            
-                succeed = false;
-                Response.WriteAsync("<script>alert('数据未成功保存，请重新尝试！');</script>");
+                
+                 }
             
             if (succeed)
             {//进入支付处理

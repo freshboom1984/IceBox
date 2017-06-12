@@ -5,6 +5,10 @@ namespace IceBox.Models
 {
     public partial class Consignee
     {
+        public Consignee()
+        {
+            Order = new HashSet<Order>();
+        }
         public int ObjId { get; set; }
         public string Name { get; set; }
         public int? TheCustomer { get; set; }
@@ -19,5 +23,6 @@ namespace IceBox.Models
         public string QqNumber { get; set; }
 
         public virtual Customer TheCustomerNavigation { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

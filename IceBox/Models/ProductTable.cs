@@ -5,6 +5,13 @@ namespace IceBox.Models
 {
     public partial class ProductTable
     {
+        public ProductTable()
+        {
+            Order = new HashSet<Order>();
+           
+           
+        }
+
         public int Id { get; set; }
         public int? ProductId { get; set; }
         public string Name { get; set; }
@@ -20,5 +27,9 @@ namespace IceBox.Models
         public string Clow { get; set; }
         public string Chigh { get; set; }
         public int? Typeid { get; set; }
+
+        public virtual ICollection<Order> Order { get; set; }
+        
+        
     }
 }

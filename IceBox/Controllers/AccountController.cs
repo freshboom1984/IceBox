@@ -482,7 +482,7 @@ namespace IceBox.Controllers
                             join b in db.ProductTable on a.TheProduct equals b.Id
                             join p in db.Payment on a.ThePayment equals p.ObjId
                             join d in db.Consignee on a.TheConsignee equals d.ObjId
-                            join e in db.CustomerWords on a.ObjId equals e.TheOrder
+                            
                             orderby a.OrderTime descending
                             select new
                             {
@@ -493,7 +493,7 @@ namespace IceBox.Controllers
                                 smallImg = b.Spicture1,
                                 transTime = p.TransTime,
                                 name = d.Name,
-                                words = e.Words,
+                                
                                 receiptFile = ""
                             };//orderby a.OrderTime descending 
 
@@ -509,7 +509,7 @@ namespace IceBox.Controllers
                     smallImg = o.smallImg,
                     transTime = o.transTime == null ? default(DateTime) : o.transTime.Value,
                     name = o.name,
-                    words = o.words,
+                    
                     receiptFile = ""
                 });
             }
