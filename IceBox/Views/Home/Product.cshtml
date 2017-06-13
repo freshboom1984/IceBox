@@ -18,18 +18,20 @@
         </p>
         <hr />
         <div>
+            <p style="font-size:30px;color:#ff6a00">现价：¥@Model.Price</p>
             @if (Model.Discount != 100)
             {
-                <span class="game-discount">-@Model.Discount%</span>
-                <span class="game-price"><s>¥@Model.Id</s></span><!--原价-->
+                
+                    <p style="font-size:15px;color:#FFF;">折扣：-@Model.Discount%</p>
+                    <p style="font-size:10px;color:#CCC"><s>原价：¥@Model.Id</s></p><!--原价-->
+                
+
             }  <!--Model.Discount != 100 即有折扣，不是100%off-->   
-            <span class="game-price">¥@Model.Price</span>
+           
             
         </div>
         <br />
-        <br />
-        <br />
-        <br />
+       
         <!--<button type="button" onclick="/Cart/AddCart/Model.ProductId" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-shopping-cart">加入购物车</span></button>--->
         <a class="btn btn-lg btn-primary" href="/Cart/AddCart/@Model.ProductId" role="button" ><span class="glyphicon glyphicon-shopping-cart">加入购物车</span></a>
         &nbsp;&nbsp;&nbsp;
@@ -100,8 +102,7 @@
 
         <div class="tab-pane" id="ygp1">
             <div class="col-md-6">
-                <video src="@Model.Svideo" width:610px height:343px controls>
-                    
+                <video src="~/@Model.Svideo" width:610px height:343px controls>
                     Your browser does not support the video tag.Your browser does not support the video tag.
                 </video>            
             </div>
