@@ -42,17 +42,24 @@ a{text-decoration:none;}
  margin:30px;
  background-color:#333;	
  height:430px;
+ border-radius:15px;
 }
 
+.tab-pane {
+    color: #FFF;
+    background-color: #333;
 
+}
 
+.sdiscribe{
+    color:#FFF;
+    margin:auto;
 
+}
 /*DOWN list*/
-
-	
 /*以下为icon*/
 .social-icons {
-	float: right;
+    float: right;
 }
 .social-icons li{
 	float:left;
@@ -105,15 +112,16 @@ a{text-decoration:none;}
 
 .peizhi{
 	margin:30px;
-	bakcground-color:#333;
+	background-color:#333;
 	border-radius:15px;
 	height:400px;
 }
 
 .show{
    	margin:30px;
-	bakcground-color:#333;
+	background-color:#333;
 	height:640px;
+    border-radius:15px;
 }
 
 

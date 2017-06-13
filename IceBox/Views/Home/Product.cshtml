@@ -1,6 +1,8 @@
 @model ProductTable
 <link rel="stylesheet" type="text/css" href="~/css/product-style.css">
 
+
+
 <div class="container main">
     @ViewBag.newsname
     <h3 style="color:#0CF">@Model.Name</h3>
@@ -10,7 +12,7 @@
     </div>
     <div class="col-md-7">
         <span class="label label-default">动作冒险</span>
-        <hr />
+        <hr/>
         <p style="color:#FFF">
             @Model.Hdiscribe
         </p>
@@ -35,29 +37,24 @@
     </div>
 </div>
 
-<div class=" peizhi">
+<div class=" peizhi container">
 
-    <div class="container" style="background-color:#333">
-        <h2 style="color:#0FF">配置要求</h2>
+    <div style="background-color:#333">
+        <h2 style="color:#0CF">配置要求</h2>
         <hr />
         <ul class="nav nav-tabs" role="tablist">
             <li><a href="#tab-low" role="tab" data-toggle="tab">最低配置</a></li>
             <li><a href="#tab-high" role="tab" data-toggle="tab">推荐配置</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" id="tab-low" style="background-color:#333">
-                <p style="color:#FFF">
-                    @Model.Clow
-                   
-                </p>
+            <div class="tab-pane active" id="tab-low" >              
+                @Html.Raw(Model.Clow)
+            </div>
+            
+            <div class="tab-pane" id="tab-high" >
+                @Html.Raw(Model.Chigh)                          
             </div>
 
-            <div class="tab-pane" id="tab-high" style="background-color:#333">
-                <p style="color:#FFF">
-                    @Model.Chigh
-                   
-                </p>
-            </div>
         </div>
     </div>
 
@@ -84,10 +81,8 @@
             <div class="col-md-1">
 
             </div>
-            <div class="col-md-4">
-                <p style="color:#CCC;margin:auto">
-                    @Model.Sdisvribe
-                </p>
+            <div class="col-md-4 sdiscribe">
+                @Html.Raw(Model.Sdisvribe)
             </div>
         </div>
 
@@ -98,52 +93,24 @@
             <div class="col-md-1">
 
             </div>
-            <div class="col-md-4">
-                <p style="color:#CCC;margin:auto">
-                    在《For Honor》紧张又逼真的战场上杀出一条毁灭之路。<br />
-                    <br />
-                    • 征服独一无二的战士<br />
-                    在各种英勇的骑士、残忍的维京人还有致命的武士中选择你最爱的战士，每一个都有自己专属的武器、风格和个性化选择。<br />
-                    <br />
-                    • 难忘的故事战役 <br />
-                    在大型战役中攻破城堡和堡垒，在激烈的对战中迎击夺命 Boss，确保你的人能在神秘致命的敌人围攻中存活下来。<br />
-                    <br />
-                    • 单打或与好友一起征服敌人<br />
-                    《For Honor》提供好玩的单人战役和惊心动魄的多人模式。<br />
-                    <br />
-                    • 创新”战斗的艺术”控制系统 <br />
-                    玩家能够完全控制战士的系统，权衡武器的重量，感受每一次攻击的力度。<br />
-                </p>
+            <div class="col-md-4 sdiscribe">
+                @Html.Raw(Model.Sdisvribe)
             </div>
         </div>
 
         <div class="tab-pane" id="ygp1">
             <div class="col-md-6">
-                <video width:610px height:343px controls>
-                    <source src="p-img/ygp1.webm" type="video/webm">
+                <video src="@Model.Svideo" width:610px height:343px controls>
+                    
                     Your browser does not support the video tag.Your browser does not support the video tag.
-                </video>
+                </video>            
             </div>
 
             <div class="col-md-1">
 
             </div>
-            <div class="col-md-4">
-                <p style="color:#CCC;margin:auto">
-                    在《For Honor》紧张又逼真的战场上杀出一条毁灭之路。<br />
-                    <br />
-                    • 征服独一无二的战士<br />
-                    在各种英勇的骑士、残忍的维京人还有致命的武士中选择你最爱的战士，每一个都有自己专属的武器、风格和个性化选择。<br />
-                    <br />
-                    • 难忘的故事战役 <br />
-                    在大型战役中攻破城堡和堡垒，在激烈的对战中迎击夺命 Boss，确保你的人能在神秘致命的敌人围攻中存活下来。<br />
-                    <br />
-                    • 单打或与好友一起征服敌人<br />
-                    《For Honor》提供好玩的单人战役和惊心动魄的多人模式。<br />
-                    <br />
-                    • 创新”战斗的艺术”控制系统 <br />
-                    玩家能够完全控制战士的系统，权衡武器的重量，感受每一次攻击的力度。<br />
-                </p>
+            <div class="col-md-4 sdiscribe">
+                @Html.Raw(Model.Sdisvribe)
             </div>
         </div>
 
