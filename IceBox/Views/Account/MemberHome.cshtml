@@ -183,9 +183,9 @@
                 <table border="1" style="border-width:1px;border-collapse:collapse;width:100%;">
                     <tr>
                         <th>订单时间</th>
-                        <th>收花人</th>
-                        <th>鲜花名</th>
-                        <th>留言</th>
+                        
+                        <th>游戏名</th>
+                        
                         <th>图片</th>
                         <th>金额</th>
                         <th>付款时间</th>
@@ -195,10 +195,9 @@
                     {
                         <tr>
                             <td>@cartItem.orderTime.ToString()</td>
-                            <td>@cartItem.name</td>
+                           
                             <td>@cartItem.productName</td>
-                            <td>@cartItem.words</td>
-                            <td><img src="/images/@cartItem.smallImg" style="width:120px;height:120px" /></td>
+                            <td><img src=~/@cartItem.smallImg style="width:120px;height:120px" /></td>
                             <td>@cartItem.amt</td>
                             <td>@cartItem.transTime</td>
                             <td>@cartItem.orderState</td>
